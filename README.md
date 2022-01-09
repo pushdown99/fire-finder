@@ -72,7 +72,7 @@ tags: [mbed, ST, iot]
 
 파일명|내용
 ---|---
-step-motor.ino|스템모터제어 / I2C LiquidCrystal LCD 16x2 디스플레이 / controller(B-L475E)와 시리얼통신 
+step-motor.ino|스템모터제어 / I2C LiquidCrystal LCD 16x2 디스플레이 / controller(B-L4S5I)와 시리얼통신 
 
 
 #### ESP32-CAM 보드 [[github]](https://github.com/pushdown99/fire-finder/tree/main/src/esp32-cam%20(camera-streamer))
@@ -98,7 +98,7 @@ app_httpd.cpp|웹서비스 handler 정의 및 callback
 camera_index.h|index페이지에 대한 압축(gzip) 데이터
 camera_pins.h|ESP32 제품군 핀 정의 선언파일  
 
-#### B-L475E [[github]](https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller))
+#### B-L4S5I [[github]](https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller))
 
 ~~~console
 ├─main.cpp 
@@ -135,7 +135,7 @@ step-motor.ino|황해연
 esp32-cam-streamer.ino|황해연 
 
 
-#### B-L475E
+#### B-L4S5I
 
 파일명|기여자
 ---|---
@@ -147,7 +147,7 @@ main.cpp|황해연
 
 구현보드|목적|소스위치
 :---|:---|:---
-B-L475E|제어장치</br>- 마이크앰프처리</br>- 음향감지</br>- 시리얼통신|[https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller)](https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller))  
+B-L4S5I|제어장치</br>- 마이크앰프처리</br>- 음향감지</br>- 시리얼통신|[https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller)](https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller))  
 Arduino Uno|제어장치</br>- 스텝모터제어</br>- LCD 16x2</br>- 시리얼통신|[https://github.com/pushdown99/fire-finder/tree/main/src/arduino%20uno%20(step-motor)](https://github.com/pushdown99/fire-finder/tree/main/src/arduino%20uno%20(step-motor))  
 ESP32-CAM|카메라 및 스트리머(캡쳐장치)|[https://github.com/pushdown99/fire-finder/tree/main/src/esp32-cam%20(camera-streamer)](https://github.com/pushdown99/fire-finder/tree/main/src/esp32-cam%20(camera-streamer))  
 
@@ -167,8 +167,8 @@ I2C|LiquidCrystal 16x2|상태표시|step-motor.ino|https://github.com/pushdown99
 
 문제점/애로사항|설명|해결방법
 :---|:---|:---
-MBED OS 빌드|타겟보드로서 B-475E 샘플지원 미비|타겟보드와 유사한 475VG로 빌드하거나, mbed-os-example 에서 구현
-B-475E analog pin gain값이 상이함|analog pin에서의 MIC audio gain 값이 pin 별로 상이함|calibration / 멀티채널 ADC 채택(mcp3008)
-스텝모터선정오류|동작조건(12V, 3A), 공통전원 5V|외부어뎁터 승압/부스터 제작 및 B-475E pinout 3.3V이므로 Uno에서 제어(대신 통신은 시리얼) 
+MBED OS 빌드|타겟보드로서 B-L475E 샘플지원 미비|타겟보드와 유사한 475VG로 빌드하거나, mbed-os-example 에서 구현
+B-L4S5I analog pin gain값이 상이함|analog pin에서의 MIC audio gain 값이 pin 별로 상이함|calibration / 멀티채널 ADC 채택(mcp3008)
+스텝모터선정오류|동작조건(12V, 3A), 공통전원 5V|외부어뎁터 승압/부스터 제작 및 B-L4S5I pinout 3.3V이므로 Uno에서 제어(대신 통신은 시리얼) 
 MAX4466 Gain값 상이|중국 저가부품 사용에 따른 차이점|FFT를 이용한 주파수해석 및 이를 통한 음향분석
 

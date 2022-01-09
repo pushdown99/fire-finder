@@ -62,107 +62,83 @@ tags: [mbed, ST, iot]
 
 ## 파일리스트
   
-#### 카메라 [[github]](https://github.com/pushdown99/sound-camera/tree/master/camera)
+#### 아두이노 우노 [[github]](https://github.com/pushdown99/fire-finder/tree/main/src/arduino%20uno%20(step-motor))
 ~~~console
-├─camera
-│  ├─inc
-│  ├─shared
-│  │  └─res
-│  └─src
+├─step-motor.ino
 ~~~
 
-- 헤더파일(*.h)
+- 소스파일(*.ino) / Arduino IDE 1.8.19
 
 파일명|내용
 ---|---
-inc/baseUI.h|baseUI/EFL 관련 외부참조 및 함수정의 
-inc/cam.h|카메라 관련 외부참조 변수 및 함수정의
-inc/max4466.h|마이크앰프(MAX4466) 제어를 위한 외부참조 변수 및 함수정의
-inc/misc.h|기타(miscellaneous) 외부참조 변수 및 함수정의
-inc/piezoe.h|피에조 부저 (카메라셔터음) 제어 관련 외부참조 변수 및 함수정의
-inc/post.h|외부서버에 데이터전송을 위한 curl/POST 관련 외부참조 변수 및 함수정의
-inc/soundcam.h|소음감지어플리케션 주요구조체 및 관련 외부참조 변수 및 함수정의
-inc/thread.h|쓰레드 처리를 위한 외부참조 변수 및 함수정의
+step-motor.ino|스템모터제어 / I2C LiquidCrystal LCD 16x2 디스플레이 / controller(B-L475E)와 시리얼통신 
 
-- 소스파일(*.c)
 
-파일명|내용
----|---
-src/baseUI.c|baseUI/EFL을 이용 UI레이아웃 설정 및 제어 
-src/cam.c|카메라 초기화 및 프리뷰관련 설정</br>baseUI와 연결
-src/**main.c**|어플리케이초기화 및 환경설정</br>idler설정
-src/max4466.c|마이크앰프(MAX4466) 제어를 위한 외부참조 변수 및 함수정의
-src/misc.c|기타(miscellaneous) 함수
-src/piezoe.c|피에조 부저 (카메라셔터음) 제어
-src/post.c|외부서버에 데이터전송을 위한 curl/POST 
-src/thread.c|쓰레드 처리 (마이크앰프별,코디네이터, GPIO, Thingspark 연동)
-
-#### ST 보드 [[github]](https://github.com/pushdown99/sound-camera/tree/master/dashboard)
+#### ESP32-CAM 보드 [[github]](https://github.com/pushdown99/fire-finder/tree/main/src/esp32-cam%20(camera-streamer))
 
 ~~~console
-├─dashboard
-│  ├─public
-│  │  └─data
-│  └─views
+├─esp32-cam-streamer.ino 
+├─app_httpd.cpp 
+├─camera_index.h 
+├─camera_pins.h 
 ~~~
 
-- 소스파일(*.js)
+- 소스파일(*.ino, *.cpp) / Arduino IDE 1.8.19, ESP32 (1.0.2rc)
 
 파일명|내용
 ---|---
-**app.js**|nodejs기반 웹어플리케이션  
+esp32-cam-streamer.ino|ESP32-CAM pre-define 및 환경설정, 접속 시 LED 제어 (Wi-Fi 및 서비스 완료여부를 가시적으로 확인)  
+app_httpd.cpp|웹서비스 handler 정의 및 callback
 
-- 소스파일(*.ejs)
+- 소스파일(*.h)
   
 파일명|내용
 ---|---
-views/chart.ejs|google chart 및 카메라 이미지처리 html/javascript 템플릿  
+camera_index.h|index페이지에 대한 압축(gzip) 데이터
+camera_pins.h|ESP32 제품군 핀 정의 선언파일  
+
+#### B-L475E [[github]](https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller))
+
+~~~console
+├─main.cpp 
+├─mcp3008 (lib/external) 
+~~~
+
+- 소스파일(*.cpp) / MBED OS 6
+
+파일명|내용
+---|---
+main.cpp|ADC(mcp3008) / MAX4466(Analog MIC제어), Serial 통신 (w/Step-motor), FFT (Fast Fourier Transform; CDFT)  
+
+- 소스파일(*.h)
+  
+파일명|내용
+---|---
+camera_index.h|index페이지에 대한 압축(gzip) 데이터
+camera_pins.h|ESP32 제품군 핀 정의 선언파일  
 
 ---
 
 ## 코드 기여자 
 
-#### 카메라
-
-- 헤더파일(*.h)
+#### 아두이노 우노
 
 파일명|기여자
 ---|---
-inc/baseUI.h|황해연 
-inc/cam.h|황해연
-inc/max4466.h|황해연
-inc/misc.h|황해연,김민전
-inc/piezoe.h|황해연,김민전
-inc/post.h|황해연
-inc/soundcam.h|황해연
-inc/thread.h|황해연
+step-motor.ino|황해연 
 
-- 소스파일(*.c)
+#### ESP32-CAM 보드
 
 파일명|기여자
 ---|---
-src/baseUI.c|황해연
-src/cam.c|황해연
-src/main.c|황해연
-src/max4466.c|황해연
-src/misc.c|황해연
-src/piezoe.c|황해연
-src/post.c|황해연 
-src/thread.c|황해연
+esp32-cam-streamer.ino|황해연 
 
-#### ST 보드
 
-- 소스파일(*.js)
+#### B-L475E
 
 파일명|기여자
 ---|---
-app.c|황해연
-
-- 소스파일(*.ejs)
-  
-파일명|기여자
----|---
-views/chart.ejs|황해연  
+main.cpp|황해연 
 
 ---
 
@@ -170,27 +146,28 @@ views/chart.ejs|황해연
 
 구현보드|목적|소스위치
 :---|:---|:---
-RPi 4|소음감지 카메라 본체</br>- 마이크앰프처리</br>- 카메라영상출력|[https://github.com/pushdown99/sound-camera/tree/master/camera](https://github.com/pushdown99/sound-camera/tree/master/camera)  
-
+B-L475E|제어장치</br>- 마이크앰프처리</br>- 음향감지</br>- 시리얼통신|[https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller)](https://github.com/pushdown99/fire-finder/tree/main/src/b-l475E%20(controller))  
+Arduino Uno|제어장치</br>- 스텝모터제어</br>- LCD 16x2</br>- 시리얼통신|[https://github.com/pushdown99/fire-finder/tree/main/src/arduino%20uno%20(step-motor)](https://github.com/pushdown99/fire-finder/tree/main/src/arduino%20uno%20(step-motor))  
+ESP32-CAM|카메라 및 스트리머(캡쳐장치)|[https://github.com/pushdown99/fire-finder/tree/main/src/esp32-cam%20(camera-streamer)](https://github.com/pushdown99/fire-finder/tree/main/src/esp32-cam%20(camera-streamer))  
 
 ---
 
-## 구현 사항 (가산점) 
+## 구현 사항
 
 #### Peripheral
 종류|디바이스|목적|소스위치
 :---|:---|:---|:---
-SPI|MAX4466/MCP3008|마이크앰프 복수채널 I/O|src/mcp3008.c</br>src/max446.c
-GPIO|버튼|카메라셔터|src/thread.c
-GPIO|피에조부저|카메라셔터음|src/piezoe.c 
+SPI|MAX4466/MCP3008|마이크앰프 복수채널 I/O|main.cpp</br>https://github.com/pushdown99/fire-finder/blob/main/src/b-l475E%20(controller)/main.cpp
+I2C|LiquidCrystal 16x2|상태표시|step-motor.ino|https://github.com/pushdown99/fire-finder/blob/main/src/arduino%20uno%20(step-motor)/step-motor.ino
 
 ---
 
-## 별첨
+## 개발시 문제점/애로사항 및 해결방법
 
-#### 자료다운로드
-Output|Download
----|---
-문서자료|[소음카메라(pptx)](noise-camera.pptx)
-문서자료|[소음카메라(pdf)](noise-camera.pdf)
-발표자료|[PRESENTATION.md](PRESENTATION.md)
+문제점/애로사항|설명|해결방법
+:---|:---
+MBED OS 빌드|타겟보드로서 B-475E 샘플지원 미비|타겟보드와 유사한 475VG로 빌드하거나, mbed-os-example 에서 구현
+B-475E analog pin gain값이 상이함|analog pin에서의 MIC audio gain 값이 pin 별로 상이함|calibration / 멀티채널 ADC 채택(mcp3008)
+스텝모터선정오류|동작조건(12V, 3A), 공통전원 5V|외부어뎁터 승압/부스터 제작 및 B-475E pinout 3.3V이므로 Uno에서 제어(대신 통신은 시리얼) 
+MAX4466 Gain값 상이|중국 저가부품 사용에 따른 차이점|FFT를 이용한 주파수해석 및 이를 통한 음향분석
+

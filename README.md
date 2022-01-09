@@ -34,7 +34,6 @@ tags: [mbed, ST, iot]
 황인후|테스트
 
 ![](photo/0.jpg)
-![](photo/1.jpg)
 
 ---
 

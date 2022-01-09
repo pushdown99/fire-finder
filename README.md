@@ -17,7 +17,7 @@ tags: [mbed, ST, iot]
 
 [별첨](#별첨)
 
-[![Watch the video](https://img.youtube.com/vi/p-jtZBpTV6w/hqdefault.jpg)](https://www.youtube.com/watch?v=p-jtZBpTV6w)
+[![Watch the video](https://img.youtube.com/vi/FoKdfUStzBI/hqdefault.jpg)](https://www.youtube.com/watch?v=FoKdfUStzBI)
 ![](images/b0.jpg)
 
 ---

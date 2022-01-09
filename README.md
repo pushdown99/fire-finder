@@ -166,7 +166,7 @@ I2C|LiquidCrystal 16x2|상태표시|step-motor.ino|https://github.com/pushdown99
 ## 개발시 문제점/애로사항 및 해결방법
 
 문제점/애로사항|설명|해결방법
-:---|:---
+:---|:---|:---
 MBED OS 빌드|타겟보드로서 B-475E 샘플지원 미비|타겟보드와 유사한 475VG로 빌드하거나, mbed-os-example 에서 구현
 B-475E analog pin gain값이 상이함|analog pin에서의 MIC audio gain 값이 pin 별로 상이함|calibration / 멀티채널 ADC 채택(mcp3008)
 스텝모터선정오류|동작조건(12V, 3A), 공통전원 5V|외부어뎁터 승압/부스터 제작 및 B-475E pinout 3.3V이므로 Uno에서 제어(대신 통신은 시리얼) 
